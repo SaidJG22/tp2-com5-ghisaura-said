@@ -1,0 +1,33 @@
+/* Distribución general: menú lateral (30 %) + contenido (70 %) */
+.layout {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  min-height: 100vh;
+}
+
+.contenido {
+  min-width: 0;
+  padding: 64px 56px;
+}
+
+/* El contenido no se estira de más en pantallas muy anchas */
+.contenido > section {
+  max-width: 900px;
+}
+
+@media (max-width: 1024px) {
+  .contenido {
+    padding: 48px 32px;
+  }
+}
+
+/* En celulares el menú pasa arriba y el contenido ocupa todo el ancho */
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contenido {
+    padding: 32px 16px 48px;
+  }
+}

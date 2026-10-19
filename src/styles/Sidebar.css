@@ -1,0 +1,151 @@
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 48px 32px;
+  background-color: var(--color-fondo-claro);
+  border-right: 1px solid var(--color-borde);
+}
+
+.sidebar-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-marca {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebar-foto {
+  display: block;
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--color-acento);
+}
+
+/* Mismo recorte que la foto del Home: agranda y centra en la cara */
+.sidebar-foto img {
+  width: 100%;
+  height: 100%;
+  transform: scale(1.8);
+  transform-origin: 50% 32%;
+}
+
+.sidebar-nombre {
+  display: block;
+  color: var(--color-texto);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.sidebar-profesion {
+  display: block;
+  color: var(--color-acento);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.sidebar-boton-menu {
+  display: none;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar-link {
+  padding: 12px 16px;
+  border-left: 3px solid transparent;
+  border-radius: 0 8px 8px 0;
+  color: var(--color-texto-suave);
+  font-weight: 500;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.sidebar-link:hover {
+  color: var(--color-texto);
+  background-color: rgba(148, 163, 184, 0.08);
+}
+
+/* Opción activa: NavLink le agrega la clase "activo" */
+.sidebar-link.activo {
+  color: var(--color-acento);
+  border-left-color: var(--color-acento);
+  background-color: rgba(45, 212, 191, 0.1);
+  font-weight: 600;
+}
+
+.sidebar-pie {
+  margin-top: auto;
+  color: var(--color-texto-suave);
+  font-size: 0.85rem;
+}
+
+/* Celulares: barra superior con botón ☰ que abre el menú */
+@media (max-width: 768px) {
+  .sidebar {
+    z-index: 10;
+    height: auto;
+    gap: 0;
+    padding: 12px 16px;
+    border-right: none;
+    border-bottom: 1px solid var(--color-borde);
+  }
+
+  .sidebar-marca {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .sidebar-foto {
+    width: 44px;
+    height: 44px;
+    border-width: 2px;
+  }
+
+  .sidebar-nombre {
+    font-size: 1.05rem;
+  }
+
+  .sidebar-profesion {
+    font-size: 0.8rem;
+  }
+
+  .sidebar-boton-menu {
+    display: block;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--color-texto);
+    font-size: 1.3rem;
+    cursor: pointer;
+  }
+
+  .sidebar-nav {
+    display: none;
+    padding-top: 12px;
+  }
+
+  .sidebar-nav.abierto {
+    display: flex;
+  }
+
+  .sidebar-pie {
+    display: none;
+  }
+}
